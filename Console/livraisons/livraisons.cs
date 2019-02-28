@@ -10,7 +10,7 @@ namespace livraisons
     {
         static void Main(string[] args)
         {
-
+            //
             //on creer un objet client[] et on assigne dee valeurs
             Client[] clients =
             {
