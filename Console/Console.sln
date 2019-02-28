@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rayon", "Rayon\Rayon.csproj", "{A15EDB8E-9237-4464-A725-2794F115BD39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deuxieme degres", "ConsoleApp1\deuxieme degres.csproj", "{6FA798A3-2BDD-40F0-BB9E-04CE490B448D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CelciusFarenheit", "CelciusFarenheit\CelciusFarenheit.csproj", "{E94C2C91-73A9-4153-8273-160E27D23105}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avion", "Avion\Avion.csproj", "{936D7452-C209-4C3E-A26E-9592CCC9BCA0}"
@@ -15,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chaineCaratere", "chaineCar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "livraisons", "livraisons\livraisons.csproj", "{B0BB2FC2-332B-41F4-9F5E-2A4912810252}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "remise", "..\..\..\source\repos\ConsoleApp1\ConsoleApp1\remise.csproj", "{0DBC2191-FD2D-4712-A262-3BB6213E5380}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rechecheNombre", "rechecheNombre\rechecheNombre.csproj", "{CC0F41FF-D646-407C-91D4-9564D59071DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "equation", "equation\equation.csproj", "{35CB852F-C01C-4744-AF6A-3AE8494E0058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{A15EDB8E-9237-4464-A725-2794F115BD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A15EDB8E-9237-4464-A725-2794F115BD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A15EDB8E-9237-4464-A725-2794F115BD39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FA798A3-2BDD-40F0-BB9E-04CE490B448D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FA798A3-2BDD-40F0-BB9E-04CE490B448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6FA798A3-2BDD-40F0-BB9E-04CE490B448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FA798A3-2BDD-40F0-BB9E-04CE490B448D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E94C2C91-73A9-4153-8273-160E27D23105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E94C2C91-73A9-4153-8273-160E27D23105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E94C2C91-73A9-4153-8273-160E27D23105}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,14 +43,14 @@ Global
 		{B0BB2FC2-332B-41F4-9F5E-2A4912810252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0BB2FC2-332B-41F4-9F5E-2A4912810252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0BB2FC2-332B-41F4-9F5E-2A4912810252}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DBC2191-FD2D-4712-A262-3BB6213E5380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DBC2191-FD2D-4712-A262-3BB6213E5380}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DBC2191-FD2D-4712-A262-3BB6213E5380}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DBC2191-FD2D-4712-A262-3BB6213E5380}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC0F41FF-D646-407C-91D4-9564D59071DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC0F41FF-D646-407C-91D4-9564D59071DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC0F41FF-D646-407C-91D4-9564D59071DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC0F41FF-D646-407C-91D4-9564D59071DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35CB852F-C01C-4744-AF6A-3AE8494E0058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35CB852F-C01C-4744-AF6A-3AE8494E0058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35CB852F-C01C-4744-AF6A-3AE8494E0058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35CB852F-C01C-4744-AF6A-3AE8494E0058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
