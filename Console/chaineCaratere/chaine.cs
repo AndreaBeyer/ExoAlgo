@@ -24,8 +24,8 @@ namespace chaineCaratere
             
             //on creer une valeur consolekeyinfo pour le cas ou l'utilisateur veut recommencer le calcul
             ConsoleKeyInfo reponse;
-
-            do//tant que l'utilisateur souhaite continuer
+            bool reponseContinuer = true;
+            while(reponseContinuer)//tant que l'utilisateur souhaite continuer
             {
                 //on (re-)initialise les valeurs à 0
                 nbreSpec = 0;
@@ -61,7 +61,7 @@ namespace chaineCaratere
                 //on creer une variable pour le nombre de caractere
                 int nbreCaractere = chaine.Length;
 
-
+                
                 foreach (char c in chaine)//pour chaque caracteres de la chaine
                 {
                     
@@ -125,8 +125,10 @@ namespace chaineCaratere
                 Console.WriteLine("Voulez-vous faire une autre Analyse ? (O/N)");
                 reponse = Console.ReadKey();
                 Console.ReadKey();
+                reponseContinuer = reponse.Key == ConsoleKey.O || reponse.Key == ConsoleKey.Y;
 
-            } while (reponse.Key == ConsoleKey.O || reponse.Key == ConsoleKey.Y); //!tant que l'utilisateur souhaite continuer
+
+            }
 
             
             //on demande a l'utilisateur d'appuyer sur une touche pour fermer le programme
