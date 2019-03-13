@@ -6,61 +6,53 @@ using System.Threading.Tasks;
 
 namespace Rayon
 {
-    class rayon
+    class Rayon
     {
         static void Main(string[] args)
         {
-            //on initialise les variables decimal
-            double rayon, circonference, surface;
-
-            //on creer une valeur string pour le titre
+            #region initialisation des variables
+            double rayon = 0, circonference = 0, surface=0;
+            bool recommencer = true;
             string titre = "Calcul d'un cercle";
-            //on creer une valeur consolekey pour le cas ou l'utilisateur veut recommencer le calcul
-            ConsoleKeyInfo reponse;
+            #endregion
 
-            //on passe le curseur du terminal à la moitié de la console
-            Console.SetCursorPosition((Console.WindowWidth - titre.Length) / 2, Console.CursorTop);
-            //on ecrit le titre
+            #region moitie de la console
+            HalfConsole(titre);
+            #endregion
+
+            #region affichage du titre
             Console.WriteLine(titre);
-            //tant que l'utilisateur souhaite continuer le calcul
+            #endregion
+
+            #region Main tant que l'utilisateur souhaite recommencer
             do
             {
-                Console.WriteLine(Environment.NewLine +"veuillez entrer le rayon du cercle");
-                string stringRayon = Console.ReadLine();
-                //on regarde si rayon est convertible en double on ferme le programme sinon
-                if (!double.TryParse(stringRayon, out rayon))
-                {
-                    Console.WriteLine("l'entrée est invalide");
-                    Console.WriteLine("Appuyer sur une touche pour terminer le programme...");
-                    Console.ReadKey();
-                    Console.WriteLine();
-                    return;
-                }
-                
-                //on calcule la surface et la circonference
-                circonference = 2 * rayon * Math.PI;
-                surface = Math.Pow(rayon, 2) * Math.PI;
-                //on recpaitule les differentes valeurs
-                String recap = "Recapitulatif des valeurs";
-                Console.SetCursorPosition((Console.WindowWidth - recap.Length) / 2, Console.CursorTop);
-                Console.WriteLine(recap);
-                Console.WriteLine();
-                Console.WriteLine(Environment.NewLine + "Le rayon est de " + string.Format("{0:0.00}", rayon) + " cm");
-                Console.WriteLine();
-                Console.WriteLine("la circonference est de " + string.Format("{0:0.00}", circonference) + " cm");
-                Console.WriteLine();
-                Console.WriteLine("Sa surface est de " + string.Format("{0:0.00}", surface) + " cm2");
-                Console.WriteLine();
-                //on demande si l'utilisateur souhaite recommencer
-                Console.WriteLine("Voulez-vous faire un autre calcul ? (O/N)");
-                reponse = Console.ReadKey();
-                Console.ReadKey();
+                #region AskUser rayon
+                DemandeDuRayon(ref rayon);
+                #endregion
 
+                #region calcul de l'aire
+                CalculAireSurface(rayon, ref circonference, ref surface);
+                #endregion
 
+                #region recapitulatif
+                Recap(rayon, circonference, surface);
+                #endregion
 
+                #region askUser recommencer?
+                Recommencer(ref recommencer);
+                #endregion
 
-            } while (reponse.Key == ConsoleKey.O || reponse.Key == ConsoleKey.Y);
+            } while (recommencer);
+            #endregion
 
+            #region arret du programme
+            ArretDuProgramme();
+            #endregion
+        }
+        #region fonctions
+        public static void ArretDuProgramme()
+        {
             //on termine le programme suivant l'ennoncé
             Console.WriteLine(Environment.NewLine + "Au revoir et à bientôt");
             Console.WriteLine();
@@ -68,6 +60,62 @@ namespace Rayon
             Console.WriteLine("Appuyer sur une touche pour continuer...");
             Console.WriteLine();
             Console.ReadKey();
+
         }
+        public static void Recommencer(ref bool _c)
+        {
+            //on demande si l'utilisateur souhaite recommencer
+            Console.WriteLine("Voulez-vous faire un autre calcul ? (O/N)");
+
+            ConsoleKeyInfo key = Console.ReadKey();
+            _c =  key.Key == ConsoleKey.O;
+            Console.ReadKey();
+            
+        }
+        public static void Recap(double _rayon, double _circonference , double _surface)
+        {
+            //on recapitule les differentes valeurs
+            String recap = "Recapitulatif des valeurs";
+            HalfConsole(recap);
+            Console.WriteLine(recap);
+            Console.WriteLine();
+            Console.WriteLine(Environment.NewLine + "Le rayon est de " + string.Format("{0:0.00}", _rayon) + " cm");
+            Console.WriteLine();
+            Console.WriteLine("la circonference est de " + string.Format("{0:0.00}", _circonference) + " cm");
+            Console.WriteLine();
+            Console.WriteLine("Sa surface est de " + string.Format("{0:0.00}", _surface) + " cm2");
+            Console.WriteLine();
+        }
+        public static void CalculAireSurface(double _rayon, ref double _circonference, ref double _surface )
+        {
+            //on calcule la surface et la circonference
+            _circonference = 2 * _rayon * Math.PI;
+            _surface = Math.Pow(_rayon, 2) * Math.PI;
+        }
+        public static void DemandeDuRayon(ref double _rayon)
+        {
+            bool ok = true;
+            do
+            {
+                Console.WriteLine(Environment.NewLine + "veuillez entrer le rayon du cercle");
+                string stringRayon = Console.ReadLine();
+                //on regarde si rayon est convertible en double on ferme le programme sinon
+                ok = double.TryParse(stringRayon, out _rayon);
+
+                if (!ok)
+                {
+                    Console.WriteLine("l'entrée est invalide");
+                    Console.WriteLine();
+                }
+
+            } while (!ok);
+
+        }
+        public static void HalfConsole(string _titre)
+        {
+            //on passe le curseur du terminal à la moitié de la console
+            Console.SetCursorPosition((Console.WindowWidth - _titre.Length) / 2, Console.CursorTop);
+        }
+        #endregion
     }
 }
