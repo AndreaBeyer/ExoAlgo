@@ -22,6 +22,7 @@ namespace avion
             //on creer 2 variables pour la vitesse maximum et pour l'avion le plus rapide
             int max = 0;
             string avionMax = "";
+            double moyenne;
             #endregion
 
             #region initialisation des tableaux
@@ -60,19 +61,28 @@ namespace avion
                 #endregion
 
                 #region AskUser editer statistiques?
-                Console.WriteLine();
-                Console.WriteLine("Voulez-vous éditer les statistiques (O/N)");
-                reponse1 = Console.ReadKey();
-                Console.WriteLine();
+                AskStats(out reponse1);
+                #endregion
+
+                #region affichage de la moyenne
+                moyenne = Moyenne(rayon,avion);
                 #endregion
 
                 #region afficher statistiques de l'avion
-                AfficherStatistiquesAvion(reponse1, avionMax, max, avion, rayon);
-                Console.WriteLine();
+               
+                if (reponse1.Key == ConsoleKey.O)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("L'avion le plus rapide (" + avionMax + ") vole a " + max + " km/h");
+
+                    Console.WriteLine("La moyenne des rayons d'actions est de " + moyenne + " km");
+                    Console.WriteLine();
+                }
+                
                 #endregion
 
                 #region AskUser recommencer?
-                DemandeSiRecommencer(out reponse, out recommence);
+                AskRecommencer(out reponse, out recommence);
                 #endregion
 
 
@@ -136,28 +146,30 @@ namespace avion
             Console.WriteLine(_titre);
             Console.WriteLine();
         }
-        public static void AfficherStatistiquesAvion(ConsoleKeyInfo _reponse1, string _avionMax, int _max, string[] _avion, int[] _rayon)
+
+        public static void AfficherAvionVitesseMax( string _avionMax, int _max)
         {
-            //si l'utilisateur souhaite les stats
-            if (_reponse1.Key == ConsoleKey.O)
-            {
-                //on indique la vitesse de l'avion le + rapide
-                Console.WriteLine();
-                Console.WriteLine("L'avion le plus rapide (" + _avionMax + ") vole a " + _max + " km/h");
-
-                //on initialise et calcul la somme des differents rayons d'action
-                int sommeRayon = 0;
-                for (int i = 0; i < _avion.Length; i++)
-                {
-                    sommeRayon += _rayon[i];
-                }
-
-                //on calcule la moyenne et on l'affiche
-                double moyenne = sommeRayon / _avion.Length;
-                Console.WriteLine("La moyenne des rayons d'actions est de " + moyenne + " km");
-            }
+            //on indique la vitesse de l'avion le + rapide
+            Console.WriteLine();
+            Console.WriteLine("L'avion le plus rapide (" + _avionMax + ") vole a " + _max + " km/h");
         }
-        public static void DemandeSiRecommencer(out ConsoleKeyInfo _reponse,out bool _recommence)
+
+        public static void AfficherRayonDActionMoyAvion(double moyenne)
+        {
+            Console.WriteLine("La moyenne des rayons d'actions est de " + moyenne + " km");
+        }
+
+        public static double Moyenne(int[] _valeur , string[] _avion)
+        {
+            int somme = 0;
+            for (int i=0; i < _avion.Length; i++)
+            {
+                somme += _valeur[i];
+            }
+            return somme / _avion.Length;
+            
+        }
+        public static void AskRecommencer(out ConsoleKeyInfo _reponse,out bool _recommence)
         {
             //on demande a l'utilisateur s'il souhaite recommencer
             Console.WriteLine("Voulez-vous faire une autre recherche (O/N)");
@@ -176,6 +188,13 @@ namespace avion
             Console.WriteLine("Appuyez sur une touche pour continuer...");
             Console.WriteLine();
             Console.ReadKey();
+        }
+        public static void AskStats(out ConsoleKeyInfo _reponse1)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Voulez-vous éditer les statistiques (O/N)");
+            _reponse1 = Console.ReadKey();
+            Console.WriteLine();
         }
         #endregion
     }
