@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="avion.cs" />
-    <Compile Include="Avions.cs" />
+    <Compile Include="ListeDAvion.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Avion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
